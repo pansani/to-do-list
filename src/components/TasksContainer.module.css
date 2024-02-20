@@ -1,47 +1,66 @@
-.tasksComponent{
-    width: 46rem;
-    margin: 0 auto;
-    margin-top: 6.25rem;
-    color: var(--gray-100);
-    padding: 0.313rem;
+.tasksComponent {
+  width: 46rem;
+  margin: 0 auto;
+  margin-top: 6.25rem;
+  color: var(--gray-100);
+  padding: 0.313rem;
 }
 
-.tasksContainerData{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1.875rem;
+.tasksContainerData {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.875rem;
 }
 
-.tasksCreatedText{
-    color: var(--blue);
+.tasksCreatedText {
+  color: var(--blue);
 }
 
-.numberTasksCreated{
-    display: inline-block;
-    text-align: center;
-    margin-left: 0.313rem;
-    background: var(--gray-400);
-    border-radius: 50%;
-    width: 1.5rem;
-    color: var(--gray-100);
-    padding: 0.125rem;
+.numberTasksCreated {
+  display: inline-block;
+  text-align: center;
+  margin-left: 0.313rem;
+  background: var(--gray-400);
+  border-radius: 50%;
+  width: 1.5rem;
+  color: var(--gray-100);
+  padding: 0.125rem;
 }
 
-.tasksMadeText{
-    color: var(--purple);
+.tasksMadeText {
+  color: var(--purple);
 }
 
-.numberMadeTasks{
-    display: inline-block;
-    text-align: center;
-    margin-left: 0.313rem;
-    background: var(--gray-400);
-    border-radius: 0 50%;
-    width: 3.25rem;
-    color: var(--gray-100);
-    padding: 0.125rem;
+.numberMadeTasks {
+  display: inline-block;
+  text-align: center;
+  margin-left: 0.313rem;
+  background: var(--gray-400);
+  border-radius: 0 50%;
+  width: 3.25rem;
+  color: var(--gray-100);
+  padding: 1px;
 }
 
-.tasksContainer{
-    width: 100%;
+.tasksContainer {
+  width: 100%;
+}
+
+.noTasksContainer {
+  height: 18.188rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--gray-300);
+  font-size: 16px;
+  line-height: 140%;
+}
+
+.clipboardIcon {
+  margin-bottom: 10px;
+}
+
+.firstTextNoText {
+  font-weight: bold;
 }

@@ -2,7 +2,11 @@ import { Trash, Check } from "phosphor-react";
 import styles from "./Task.module.css";
 import { useState } from "react";
 
-export default function Task() {
+interface TaskProps {
+  taskContent: string;
+}
+
+export default function Task({ taskContent }: TaskProps) {
   const [checkboxChecked, setCheckboxChecked] = useState(false);
 
   const handleClickCheckbox = () => {
@@ -25,11 +29,7 @@ export default function Task() {
         )}
       </button>
       <div className={styles.textContainer}>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque
-          molestias incidunt veniam ipsa temporibus, tenetur porro perspiciatis
-          quidem.
-        </p>
+        <p>{taskContent}</p>
       </div>
       <Trash size={20} className={styles.trashCan} />
     </div>
