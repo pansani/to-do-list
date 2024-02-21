@@ -4,9 +4,10 @@ import { useState } from "react";
 
 interface TaskProps {
   taskContent: string;
+  onDelete: () => void;
 }
 
-export default function Task({ taskContent }: TaskProps) {
+export default function Task({ taskContent, onDelete }: TaskProps) {
   const [checkboxChecked, setCheckboxChecked] = useState(false);
 
   const handleClickCheckbox = () => {
@@ -31,7 +32,7 @@ export default function Task({ taskContent }: TaskProps) {
       <div className={styles.textContainer}>
         <p>{taskContent}</p>
       </div>
-      <Trash size={20} className={styles.trashCan} />
+      <Trash size={20} className={styles.trashCan} onClick={onDelete} />
     </div>
   );
 }

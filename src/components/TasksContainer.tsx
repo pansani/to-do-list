@@ -13,14 +13,15 @@ interface TasksContainerProps {
   numberOfConcludedTasks: number;
   tasks: Task[];
   formSubmitted: boolean;
+  deleteTask: (taskId: number) => any;
 }
 
 export default function TasksContainer({
-  taskContent,
   numberOfTasks,
   numberOfConcludedTasks,
   tasks,
   formSubmitted,
+  deleteTask,
 }: TasksContainerProps) {
   return (
     <div className={styles.tasksComponent}>
@@ -37,7 +38,7 @@ export default function TasksContainer({
           Concluidas
           <div className={styles.numberMadeTasks}>
             <p>
-              {numberOfTasks} de {numberOfConcludedTasks}
+              {numberOfConcludedTasks} de {numberOfTasks}
             </p>
           </div>
         </p>
@@ -52,7 +53,13 @@ export default function TasksContainer({
             <p>Crie tarefas e organize seus itens a fazer</p>
           </div>
         ) : (
-          tasks.map((task) => <Task key={task.id} taskContent={task.content} />)
+          tasks.map((task) => (
+            <Task
+              onDelete={() => deleteTask(task.id)}
+              key={task.id}
+              taskContent={task.content}
+            />
+          ))
         )}
       </div>
     </div>

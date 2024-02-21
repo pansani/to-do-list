@@ -22,7 +22,7 @@ function App() {
   const [newTaskContent, setNewTaskContent] = useState<string>("");
   const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
 
-  const tasksLenght = tasks.length + 1;
+  const tasksLength = tasks.length + 1;
 
   const handleNewTaskChange = (event: ChangeEvent<HTMLInputElement>) => {
     setNewTaskContent(event.target.value);
@@ -40,7 +40,7 @@ function App() {
     setTasks((tasks) => [...tasks, newTask]);
     setNewTaskContent("");
     setFormSubmitted(true);
-    setNumberOfTasks(tasksLenght);
+    setNumberOfTasks(tasksLength);
 
     console.log(
       "Tasks:",
@@ -52,6 +52,15 @@ function App() {
       "Number of tasks:",
       numberOfTasks
     );
+  };
+
+  const deleteTask = (taskId: number) => {
+    const tasksWithoutDeletedOne = tasks.filter((task) => {
+      return task.id !== taskId;
+    });
+
+    setTasks(tasksWithoutDeletedOne);
+    setNumberOfTasks(tasksLength - 2);
   };
 
   return (
@@ -68,6 +77,7 @@ function App() {
         numberOfConcludedTasks={numberOfConcludedTasks}
         tasks={tasks}
         formSubmitted={formSubmitted}
+        deleteTask={deleteTask}
       />
     </>
   );
