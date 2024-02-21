@@ -36,8 +36,8 @@
   text-align: center;
   margin-left: 0.313rem;
   background: var(--gray-400);
-  border-radius: 0 50%;
-  width: 3.25rem;
+  border-radius: 5px;
+  width: 3.8rem;
   color: var(--gray-100);
   padding: 1px;
 }

@@ -24,7 +24,7 @@ export default function AddTask({
       />
 
       <button type="submit" className={styles.addTaskButton}>
-        Criar <PlusCircle size={16} />
+        Criar <PlusCircle size={16} className={styles.addIcon} />
       </button>
     </form>
   );

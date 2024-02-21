@@ -12,17 +12,23 @@ interface TasksContainerProps {
   numberOfTasks: number;
   numberOfConcludedTasks: number;
   tasks: Task[];
-  formSubmitted: boolean;
   deleteTask: (taskId: number) => any;
+  checkTask: (taskId: number) => void;
+  updateNumberOfConcludedTasks: (prevNumberOfConcludedTasks: number) => void;
+  tasksLength: number;
 }
 
 export default function TasksContainer({
   numberOfTasks,
   numberOfConcludedTasks,
   tasks,
-  formSubmitted,
+
   deleteTask,
+  checkTask,
+  updateNumberOfConcludedTasks,
+  tasksLength,
 }: TasksContainerProps) {
+  console.log("Tasks Length", tasksLength);
   return (
     <div className={styles.tasksComponent}>
       <div className={styles.tasksContainerData}>
@@ -44,7 +50,7 @@ export default function TasksContainer({
         </p>
       </div>
       <div className={styles.tasksContainer}>
-        {formSubmitted === false ? (
+        {tasksLength - 1 === 0 ? (
           <div className={styles.noTasksContainer}>
             <ClipboardText size={70} className={styles.clipboardIcon} />
             <p className={styles.firstTextNoText}>
@@ -58,6 +64,10 @@ export default function TasksContainer({
               onDelete={() => deleteTask(task.id)}
               key={task.id}
               taskContent={task.content}
+              onClick={checkTask}
+              taskId={task.id}
+              numberOfConcludedTasks={numberOfConcludedTasks}
+              updateNumberOfConcludedTasks={updateNumberOfConcludedTasks}
             />
           ))
         )}

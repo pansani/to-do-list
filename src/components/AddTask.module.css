@@ -10,9 +10,13 @@
   background: var(--gray-500);
   border-radius: 0.5rem;
   border: none;
-  padding: 0.313rem;
+  padding: 0.5rem;
   color: var(--gray-100);
   outline: none;
+}
+
+.addTaskInput:focus {
+  border: 1px solid var(--purple-dark);
 }
 
 .addTaskButton {
@@ -28,4 +32,17 @@
   font-size: 0.875rem;
   font-weight: bold;
   color: var(--gray-100);
+  padding-right: 15px;
+  transition: background-color 0.2s;
+}
+
+.addTaskButton:hover {
+  transition: background-color 0.2s;
+  background-color: var(--blue);
+}
+
+.addIcon {
+  position: absolute;
+  top: 36%;
+  padding-left: 3px;
 }

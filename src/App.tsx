@@ -16,11 +16,14 @@ function App() {
 
   const [numberOfConcludedTasks, setNumberOfConcludedTasks] =
     useState(numberOfTasks);
+  const updateNumberOfConcludedTasks = (newNumberOfConcludedTasks: number) => {
+    setNumberOfConcludedTasks(newNumberOfConcludedTasks);
+  };
+
   const initialTasks: Task[] = [];
 
   const [tasks, setTasks] = useState<Task[]>(initialTasks);
   const [newTaskContent, setNewTaskContent] = useState<string>("");
-  const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
 
   const tasksLength = tasks.length + 1;
 
@@ -39,7 +42,6 @@ function App() {
 
     setTasks((tasks) => [...tasks, newTask]);
     setNewTaskContent("");
-    setFormSubmitted(true);
     setNumberOfTasks(tasksLength);
 
     console.log(
@@ -63,6 +65,14 @@ function App() {
     setNumberOfTasks(tasksLength - 2);
   };
 
+  const checkTask = () => {
+    setNumberOfConcludedTasks(
+      (prevNumberOfConcludedTasks) => prevNumberOfConcludedTasks + 1
+    );
+
+    console.log("toguro eu te amo", numberOfConcludedTasks);
+  };
+
   return (
     <>
       <Header />
@@ -76,8 +86,10 @@ function App() {
         numberOfTasks={numberOfTasks}
         numberOfConcludedTasks={numberOfConcludedTasks}
         tasks={tasks}
-        formSubmitted={formSubmitted}
         deleteTask={deleteTask}
+        checkTask={checkTask}
+        updateNumberOfConcludedTasks={updateNumberOfConcludedTasks}
+        tasksLength={tasksLength}
       />
     </>
   );

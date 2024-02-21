@@ -21,12 +21,15 @@
   border: 1px solid var(--blue);
   background-color: transparent;
   cursor: pointer;
-  transition: 0.3s background-color ease-in-out;
-  transition: 0.3s border ease-in-out;
+  transition: 0.3s background-color ease-in-out, 0.3s border ease-in-out;
+}
+
+.taskCheckbox:hover {
+  border: 1px solid var(--blue-dark);
 }
 
 .taskCheckboxChecked {
-  background-color: var(--purple);
+  background-color: var(--purple-dark);
   width: 1.091rem;
   height: 1.091rem;
   border-radius: 50%;
@@ -34,8 +37,11 @@
   cursor: pointer;
   color: #fff;
   font-weight: bold;
-  transition: 0.3s background-color ease-in-out;
-  transition: 0.3s border ease-in-out;
+  transition: 0.3s background-color ease-in-out, 0.3s border ease-in-out;
+}
+
+.taskCheckboxChecked:hover {
+  background-color: var(--purple);
 }
 
 .checkIcon {
@@ -47,9 +53,26 @@
   line-height: 140%;
 }
 
+.textContent {
+  transition: opacity 0.1s ease, color 0.1s ease, text-decoration 0.5s ease;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+.textContentActive {
+  opacity: 1;
+  color: var(--gray-300);
+  text-decoration: line-through;
+  transition: opacity 0.2s ease-in-out, color 0.2s ease-in-out,
+    text-decoration 0.5s ease-in-out;
+}
+
 .trashCan {
   cursor: pointer;
   transition: 0.2s color;
+  color: var(--gray-300);
 }
 
 .trashCan:hover {
