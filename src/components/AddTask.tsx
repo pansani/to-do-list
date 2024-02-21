@@ -1,10 +1,10 @@
 import styles from "./AddTask.module.css";
 import { PlusCircle } from "phosphor-react";
-import { ChangeEvent } from "react";
+import { ChangeEvent, FormEvent } from "react";
 
 interface AddTaskProps {
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
-  onSubmit: () => void;
+  onSubmit: (event: FormEvent) => void;
   contentValue: string;
 }
 

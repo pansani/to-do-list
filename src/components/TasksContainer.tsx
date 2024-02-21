@@ -1,21 +1,27 @@
-import { useState } from "react";
 import Task from "./Task";
 import styles from "./TasksContainer.module.css";
 import { ClipboardText } from "phosphor-react";
+
+interface Task {
+  id: number;
+  content: string;
+}
 
 interface TasksContainerProps {
   taskContent: string;
   numberOfTasks: number;
   numberOfConcludedTasks: number;
+  tasks: Task[];
+  formSubmitted: boolean;
 }
 
 export default function TasksContainer({
   taskContent,
   numberOfTasks,
   numberOfConcludedTasks,
+  tasks,
+  formSubmitted,
 }: TasksContainerProps) {
-  const [tasks, setTasks] = useState("");
-
   return (
     <div className={styles.tasksComponent}>
       <div className={styles.tasksContainerData}>
@@ -37,7 +43,7 @@ export default function TasksContainer({
         </p>
       </div>
       <div className={styles.tasksContainer}>
-        {tasks === "" ? (
+        {formSubmitted === false ? (
           <div className={styles.noTasksContainer}>
             <ClipboardText size={70} className={styles.clipboardIcon} />
             <p className={styles.firstTextNoText}>
@@ -46,7 +52,7 @@ export default function TasksContainer({
             <p>Crie tarefas e organize seus itens a fazer</p>
           </div>
         ) : (
-          tasks.map((task) => <Task key={task.id} />)
+          tasks.map((task) => <Task key={task.id} taskContent={task.content} />)
         )}
       </div>
     </div>
